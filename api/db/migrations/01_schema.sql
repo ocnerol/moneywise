@@ -17,3 +17,12 @@ CREATE TABLE categories (
   budget INTEGER NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+CREATE TABLE expenses (
+  id SERIAL PRIMARY KEY NOT NULL,
+  category_id INTEGER REFERENCES categories(id),
+  title VARCHAR(100) NOT NULL,
+  description VARCHAR(500) NOT NULL,
+  expense MONEY NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+)
