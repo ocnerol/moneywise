@@ -10,6 +10,8 @@ CREATE TABLE users (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+DROP TABLE IF EXISTS categories CASCADE;
+
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(40) NOT NULL,
@@ -18,11 +20,13 @@ CREATE TABLE categories (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+DROP TABLE IF EXISTS expenses CASCADE;
+
 CREATE TABLE expenses (
   id SERIAL PRIMARY KEY NOT NULL,
   category_id INTEGER REFERENCES categories(id),
   title VARCHAR(100) NOT NULL,
-  description VARCHAR(500) NOT NULL,
+  description VARCHAR(500),
   expense MONEY NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 )
