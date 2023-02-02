@@ -9,3 +9,11 @@ CREATE TABLE users (
   profile_picture VARCHAR(200),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(40) NOT NULL,
+  description VARCHAR(150),
+  budget INTEGER NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
